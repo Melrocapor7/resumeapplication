@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Melvin B. Rocapor – Customer Support and Technical Support</title>
+<meta name="description" content="Melvin B. Rocapor is a customer service and technical support professional in Taguig City with a Tourism Management degree and hospitality experience.">
+<meta property="og:title" content="Melvin B. Rocapor – Customer Support and Technical Support">
+<meta property="og:description" content="Chat support, technical support and customer service experience, backed by a tourism and hospitality background.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#12233A">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2312233A'/%3E%3Ctext x='32' y='44' font-size='34' font-family='Arial,sans-serif' font-weight='700' text-anchor='middle' fill='%23F4B63F'%3EM%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #F6F9FB;
+    --surface: #FFFFFF;
+    --ink: #12233A;
+    --muted: #46576C;
+    --line: #D3DDE6;
+    --accent: #0C6670;
+    --sun: #F4B63F;
+    --on-ink: #FFFFFF;
+    --display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+    --body: "Public Sans", "Segoe UI", system-ui, -apple-system, sans-serif;
+    color-scheme: light;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #0C1622;
+      --surface: #132233;
+      --ink: #E9EFF6;
+      --muted: #A3B3C5;
+      --line: #263A4F;
+      --accent: #5CC6D0;
+      --on-ink: #0C1622;
+      color-scheme: dark;
+    }
+  }
+
+  *, *::before, *::after { box-sizing: border-box; }
+  html { scroll-behavior: smooth; scroll-padding-top: 5rem; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--body);
+    font-size: 1.0625rem;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+  h1, h2, h3 { font-family: var(--display); line-height: 1.1; margin: 0; letter-spacing: -0.01em; }
+  p { margin: 0; }
+  a { color: var(--accent); text-underline-offset: 0.2em; }
+  a:hover { text-decoration-thickness: 2px; }
+  :focus-visible { outline: 3px solid var(--sun); outline-offset: 3px; border-radius: 4px; }
+
+  .wrap { width: min(1080px, 100% - 2.5rem); margin-inline: auto; }
+
+  .skip {
+    position: absolute; left: 1rem; top: -4rem;
+    background: var(--ink); color: var(--on-ink);
+    padding: 0.6rem 1rem; border-radius: 6px; z-index: 20;
+  }
+  .skip:focus { top: 1rem; }
+
+  /* Header */
+  .site-header {
+    position: sticky; top: 0; z-index: 10;
+    background: color-mix(in srgb, var(--bg) 88%, transparent);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--line);
+  }
+  .site-header .wrap {
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 1rem; flex-wrap: wrap; padding-block: 0.75rem;
+  }
+  .brand {
+    font-family: var(--display); font-weight: 800; font-size: 1.15rem;
+    color: var(--ink); text-decoration: none;
+  }
+  .site-header nav ul { display: flex; gap: 1.4rem; list-style: none; margin: 0; padding: 0; flex-wrap: wrap; }
+  .site-header nav a {
+    color: var(--muted); text-decoration: none; font-weight: 500; font-size: 0.97rem;
+    padding-block: 0.25rem; border-bottom: 2px solid transparent;
+  }
+  .site-header nav a:hover { color: var(--ink); border-bottom-color: var(--sun); }
+
+  /* Hero */
+  .hero { padding-block: clamp(3.5rem, 9vw, 7rem) clamp(3rem, 7vw, 5.5rem); }
+  .hero .wrap { display: grid; gap: 3rem; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); align-items: end; }
+  .hero h1 {
+    font-size: clamp(3rem, 8.5vw, 6.4rem);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    line-height: 0.96;
+  }
+  .hero .role {
+    margin-top: 1.5rem;
+    font-family: var(--display);
+    font-size: clamp(1.25rem, 2.6vw, 1.7rem);
+    font-weight: 500;
+    line-height: 1.3;
+    max-width: 30ch;
+  }
+  .hero .intro { margin-top: 1.25rem; color: var(--muted); max-width: 54ch; }
+  .actions { display: flex; flex-wrap: wrap; gap: 0.8rem; margin-top: 2rem; }
+  .btn {
+    display: inline-block; padding: 0.8rem 1.35rem; border-radius: 8px;
+    font-weight: 600; text-decoration: none; border: 2px solid var(--ink);
+  }
+  .btn-primary { background: var(--ink); color: var(--on-ink); }
+  .btn-primary:hover { background: var(--accent); border-color: var(--accent); color: #fff; }
+  .btn-secondary { background: transparent; color: var(--ink); }
+  .btn-secondary:hover { background: var(--ink); color: var(--on-ink); }
+
+  .glance { margin: 0; border-top: 4px solid var(--sun); }
+  .glance div { padding: 0.9rem 0; border-bottom: 1px solid var(--line); }
+  .glance dt { color: var(--muted); font-size: 0.92rem; }
+  .glance dd { margin: 0.1rem 0 0; font-weight: 600; }
+
+  /* The hero settles in once on load */
+  @media (prefers-reduced-motion: no-preference) {
+    .hero .wrap > * { animation: settle 700ms cubic-bezier(.2,.7,.2,1) both; }
+    .hero .wrap > *:nth-child(2) { animation-delay: 150ms; }
+    @keyframes settle { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+  }
+
+  /* Sections */
+  section.block { padding-block: clamp(3rem, 7vw, 5rem); border-top: 1px solid var(--line); }
+  .block-head { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 2.2fr); gap: 2rem; }
+  .block-head h2 { font-size: clamp(1.9rem, 4vw, 2.7rem); font-weight: 700; }
+  .block-head .lead { color: var(--muted); margin-top: 0.8rem; max-width: 30ch; font-size: 1rem; }
+
+  /* About */
+  .about p + p { margin-top: 1rem; }
+  .about p { max-width: 62ch; }
+
+  /* Experience route */
+  .route-group + .route-group { margin-top: 3rem; }
+  .route-group h3 { font-size: 1.25rem; font-weight: 700; margin-bottom: 1.5rem; }
+  .route { list-style: none; margin: 0; padding: 0; position: relative; }
+  .route::before {
+    content: ""; position: absolute; top: 0.6rem; bottom: 0.6rem;
+    left: 9.75rem; width: 2px; background: var(--line);
+  }
+  .stop { display: grid; grid-template-columns: 8.5rem 1fr; column-gap: 2.5rem; position: relative; padding-bottom: 2.2rem; }
+  .stop:last-child { padding-bottom: 0; }
+  .stop::before {
+    content: ""; position: absolute; left: 9.25rem; top: 0.45rem;
+    width: 1rem; height: 1rem; border-radius: 50%;
+    background: var(--bg); border: 3px solid var(--ink);
+  }
+  .stop.current::before { background: var(--sun); border-color: var(--ink); box-shadow: 0 0 0 5px color-mix(in srgb, var(--sun) 30%, transparent); }
+  .stop .when { color: var(--muted); font-size: 0.95rem; padding-top: 0.2rem; }
+  .stop .what { padding-left: 1.5rem; }
+  .stop h4 { font-family: var(--display); font-size: 1.3rem; font-weight: 700; margin: 0; line-height: 1.2; }
+  .stop .where { color: var(--accent); font-weight: 600; margin-top: 0.15rem; }
+  .stop .note { margin-top: 0.5rem; color: var(--muted); max-width: 58ch; }
+  .badge {
+    display: inline-block; margin-left: 0.5rem; padding: 0.1rem 0.6rem; border-radius: 99px;
+    background: var(--sun); color: #12233A; font-family: var(--body); font-size: 0.8rem; font-weight: 600;
+    vertical-align: middle;
+  }
+
+  /* Skills */
+  .skills { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2.5rem; }
+  .skills h3 { font-size: 1.2rem; margin-bottom: 1rem; }
+  .skills ul { list-style: none; margin: 0; padding: 0; }
+  .skills li { padding: 0.65rem 0; border-bottom: 1px solid var(--line); }
+  .skills li:first-child { border-top: 1px solid var(--line); }
+
+  /* Education */
+  .edu { list-style: none; margin: 0; padding: 0; }
+  .edu li { display: grid; grid-template-columns: 8.5rem 1fr; gap: 2.5rem; padding: 1.1rem 0; border-bottom: 1px solid var(--line); }
+  .edu li:first-child { padding-top: 0; }
+  .edu time { color: var(--muted); font-size: 0.95rem; padding-top: 0.15rem; }
+  .edu strong { font-family: var(--display); font-size: 1.2rem; font-weight: 700; display: block; line-height: 1.25; }
+  .edu span { display: block; color: var(--muted); }
+  .edu .cert { color: var(--accent); font-weight: 600; }
+
+  /* Contact */
+  .contact-main a.email {
+    display: inline-block; font-family: var(--display); font-weight: 700;
+    font-size: clamp(1.4rem, 4vw, 2.3rem); color: var(--ink);
+    text-decoration-color: var(--sun); text-decoration-thickness: 4px; text-underline-offset: 0.18em;
+    overflow-wrap: anywhere;
+  }
+  .contact-main a.email:hover { color: var(--accent); }
+  .contact-main p { margin-top: 1rem; color: var(--muted); }
+  .contact-list { list-style: none; margin: 1.5rem 0 0; padding: 0; }
+  .contact-list li { padding: 0.35rem 0; }
+  .contact-list span { color: var(--muted); display: inline-block; min-width: 6rem; }
+
+  footer { border-top: 1px solid var(--line); padding-block: 1.75rem; color: var(--muted); font-size: 0.93rem; }
+
+  /* Mobile */
+  @media (max-width: 820px) {
+    .hero .wrap { grid-template-columns: 1fr; gap: 2.5rem; }
+    .block-head { grid-template-columns: 1fr; gap: 1.5rem; }
+    .block-head .lead { max-width: 50ch; }
+    .skills { grid-template-columns: 1fr; gap: 2rem; }
+  }
+  @media (max-width: 600px) {
+    body { font-size: 1rem; }
+    .route::before { left: 0.45rem; }
+    .stop { grid-template-columns: 1fr; padding-left: 2rem; }
+    .stop::before { left: 0; top: 0.35rem; }
+    .stop .what { padding-left: 0; }
+    .stop .when { padding-top: 0; margin-bottom: 0.2rem; }
+    .edu li { grid-template-columns: 1fr; gap: 0.3rem; }
+    .site-header nav ul { gap: 1rem; }
+    .btn { flex: 1 1 100%; text-align: center; }
+  }
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="#top">Melvin B. Rocapor</a>
+    <nav aria-label="Main">
+      <ul>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <section class="hero" id="top">
+    <div class="wrap">
+      <div>
+        <h1>Melvin B. Rocapor</h1>
+        <p class="role">Customer support and technical support professional with a tourism and hospitality background.</p>
+        <p class="intro">I’ve handled customer chats, calls and technical issues for international accounts, and I trained in hotels and museums before that. I’m looking for a role where I can keep learning and be useful to a team from day one.</p>
+        <div class="actions">
+          <a class="btn btn-primary" href="mailto:melvinrocapor7@gmail.com">Email me</a>
+          <a class="btn btn-secondary" href="Melvin-Rocapor-Resume.docx" download>Download resume</a>
+        </div>
+      </div>
+
+      <dl class="glance">
+        <div><dt>Based in</dt><dd>Taguig City, Metro Manila</dd></div>
+        <div><dt>In customer support since</dt><dd>February 2023</dd></div>
+        <div><dt>Most recent role</dt><dd>Chat support, Concentrix</dd></div>
+        <div><dt>Degree</dt><dd>BS Tourism Management, 2023</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <section class="block" id="about" aria-labelledby="about-h">
+    <div class="wrap block-head">
+      <div><h2 id="about-h">About</h2></div>
+      <div class="about">
+        <p>I started in tourism and hospitality, working front desk, giving museum tours and hosting events. Those jobs taught me how to listen to people who are tired, confused or in a hurry, and how to explain things clearly.</p>
+        <p>Since 2023 I’ve brought that into customer support: serving customers on an Amazon account, doing technical support for Cox Communications, and handling chat support at Concentrix. I’m detail-oriented, reliable and I value working efficiently with my team.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="experience" aria-labelledby="exp-h">
+    <div class="wrap block-head">
+      <div>
+        <h2 id="exp-h">Experience</h2>
+        <p class="lead">Most recent first.</p>
+      </div>
+      <div>
+        <div class="route-group">
+          <h3>Customer support</h3>
+          <ol class="route">
+            <li class="stop current">
+              <time class="when" datetime="2025-10">Oct 2025 – Oct 2026</time>
+              <div class="what">
+                <h4>Chat support <span class="badge">Most recent</span></h4>
+                <p class="where">Concentrix</p>
+                <p class="note">Helped customers through live chat.</p>
+              </div>
+            </li>
+            <li class="stop">
+              <time class="when" datetime="2024-08">Aug 2024 – Mar 2025</time>
+              <div class="what">
+                <h4>Technical support</h4>
+                <p class="where">Teleperformance International</p>
+                <p class="note">BPO, Cox Communications account.</p>
+              </div>
+            </li>
+            <li class="stop">
+              <time class="when" datetime="2023-02">Feb 2023 – May 2024</time>
+              <div class="what">
+                <h4>Customer service representative</h4>
+                <p class="where">Telus International</p>
+                <p class="note">BPO, Amazon account. McKinley West, Taguig City.</p>
+              </div>
+            </li>
+          </ol>
+        </div>
+
+        <div class="route-group">
+          <h3>Hospitality, tourism and social media</h3>
+          <ol class="route">
+            <li class="stop">
+              <span class="when">Earlier role</span>
+              <div class="what">
+                <h4>Social media manager and admin</h4>
+                <p class="where">Sole Blessing</p>
+                <p class="note">Imus, Cavite.</p>
+              </div>
+            </li>
+            <li class="stop">
+              <span class="when">On-the-job training</span>
+              <div class="what">
+                <h4>Tour guide, back office, researcher and events host</h4>
+                <p class="where">Veterans Museum Theater</p>
+                <p class="note">Western Bicutan, Taguig City.</p>
+              </div>
+            </li>
+            <li class="stop">
+              <span class="when">On-the-job training</span>
+              <div class="what">
+                <h4>Front desk, marketing and sales, purchasing and reservations</h4>
+                <p class="where">Jade Hotel and Suites</p>
+                <p class="note">Makati City.</p>
+              </div>
+            </li>
+            <li class="stop">
+              <time class="when" datetime="2018-06">Jun 2018</time>
+              <div class="what">
+                <h4>Service crew</h4>
+                <p class="where">Cuesina Garden Bistro</p>
+                <p class="note">Venice Grand Canal Mall, McKinley, Taguig.</p>
+              </div>
+            </li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="skills" aria-labelledby="skills-h">
+    <div class="wrap block-head">
+      <div>
+        <h2 id="skills-h">Skills</h2>
+        <p class="lead">What I’ve done on the job, and how I like to work.</p>
+      </div>
+      <div class="skills">
+        <div>
+          <h3>What I’ve worked on</h3>
+          <ul>
+            <li>Customer service</li>
+            <li>Technical support</li>
+            <li>Chat support</li>
+            <li>Front desk and reservations</li>
+            <li>Tour guiding and events hosting</li>
+            <li>Social media management</li>
+            <li>Purchasing and back office</li>
+          </ul>
+        </div>
+        <div>
+          <h3>How I work</h3>
+          <ul>
+            <li>Positive attitude</li>
+            <li>Good communication</li>
+            <li>Dedicated team player</li>
+            <li>Detail-oriented</li>
+            <li>Reliable</li>
+            <li>Values time and works efficiently</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="education" aria-labelledby="edu-h">
+    <div class="wrap block-head">
+      <div><h2 id="edu-h">Education</h2></div>
+      <ul class="edu">
+        <li>
+          <time>2019 – 2023</time>
+          <div>
+            <strong>Bachelor of Science in Tourism Management</strong>
+            <span>Taguig City University</span>
+          </div>
+        </li>
+        <li>
+          <time>Vocational course</time>
+          <div>
+            <strong class="cert">TESDA – Housekeeping NCII</strong>
+            <span>National Certificate II</span>
+          </div>
+        </li>
+        <li>
+          <time>2018 – 2019</time>
+          <div>
+            <strong>Senior High School</strong>
+            <span>Asia Source College of Arts and Technology, Fort Bonifacio, Taguig City</span>
+          </div>
+        </li>
+        <li>
+          <time>2012 – 2018</time>
+          <div>
+            <strong>Junior High School</strong>
+            <span>Diosdado Macapagal National High School, Taguig City</span>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="block" id="contact" aria-labelledby="contact-h">
+    <div class="wrap block-head">
+      <div>
+        <h2 id="contact-h">Contact</h2>
+        <p class="lead">The quickest way to reach me is by email.</p>
+      </div>
+      <div class="contact-main">
+        <a class="email" href="mailto:melvinrocapor7@gmail.com">melvinrocapor7@gmail.com</a>
+        <ul class="contact-list">
+          <li><span>Phone</span><a href="tel:+639305626990">0930 562 6990</a></li>
+          <li><span>Location</span>Taguig City, Metro Manila</li>
+          <li><span>Resume</span><a href="Melvin-Rocapor-Resume.docx" download>Download as Word file</a></li>
+        </ul>
+        <p>Character references are available on request.</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">© 2026 Melvin B. Rocapor</div>
+</footer>
+</body>
+</html>
