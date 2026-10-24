@@ -13,6 +13,19 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+
+<!-- Sets the theme before the page draws, so there is no flash of the wrong colors -->
+<script>
+  (function () {
+    var t;
+    try { t = localStorage.getItem('theme'); } catch (e) {}
+    if (t !== 'light' && t !== 'dark') {
+      t = window.matchMedia && matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    }
+    document.documentElement.setAttribute('data-theme', t);
+  })();
+</script>
+
 <style>
   :root {
     --bg: #F6F9FB;
@@ -27,18 +40,17 @@
     --body: "Public Sans", "Segoe UI", system-ui, -apple-system, sans-serif;
     color-scheme: light;
   }
-  @media (prefers-color-scheme: dark) {
-    :root {
-      --bg: #0C1622;
-      --surface: #132233;
-      --ink: #E9EFF6;
-      --muted: #A3B3C5;
-      --line: #263A4F;
-      --accent: #5CC6D0;
-      --on-ink: #0C1622;
-      color-scheme: dark;
-    }
+  :root[data-theme="dark"] {
+    --bg: #0C1622;
+    --surface: #132233;
+    --ink: #E9EFF6;
+    --muted: #A3B3C5;
+    --line: #263A4F;
+    --accent: #5CC6D0;
+    --on-ink: #0C1622;
+    color-scheme: dark;
   }
+  :root[data-theme="dark"] .btn-primary:hover { color: #0C1622; }
 
   *, *::before, *::after { box-sizing: border-box; }
   html { scroll-behavior: smooth; scroll-padding-top: 5rem; }
@@ -50,7 +62,10 @@
     font-size: 1.0625rem;
     line-height: 1.65;
     -webkit-font-smoothing: antialiased;
+    transition: background-color 0.25s, color 0.25s;
   }
+  @media (prefers-reduced-motion: reduce) { body { transition: none; } }
+
   h1, h2, h3 { font-family: var(--display); line-height: 1.1; margin: 0; letter-spacing: -0.01em; }
   p { margin: 0; }
   a { color: var(--accent); text-underline-offset: 0.2em; }
@@ -81,12 +96,21 @@
     font-family: var(--display); font-weight: 800; font-size: 1.15rem;
     color: var(--ink); text-decoration: none;
   }
+  .site-header nav { display: flex; align-items: center; gap: 1.4rem; flex-wrap: wrap; }
   .site-header nav ul { display: flex; gap: 1.4rem; list-style: none; margin: 0; padding: 0; flex-wrap: wrap; }
   .site-header nav a {
     color: var(--muted); text-decoration: none; font-weight: 500; font-size: 0.97rem;
     padding-block: 0.25rem; border-bottom: 2px solid transparent;
   }
   .site-header nav a:hover { color: var(--ink); border-bottom-color: var(--sun); }
+
+  .theme-toggle {
+    font: inherit; font-size: 0.93rem; font-weight: 600;
+    color: var(--ink); background: transparent;
+    border: 2px solid var(--line); border-radius: 99px;
+    padding: 0.3rem 0.95rem; cursor: pointer;
+  }
+  .theme-toggle:hover { border-color: var(--sun); }
 
   /* Hero */
   .hero { padding-block: clamp(3.5rem, 9vw, 7rem) clamp(3rem, 7vw, 5.5rem); }
@@ -136,7 +160,7 @@
 
   /* About */
   .about p + p { margin-top: 1rem; }
-  .about p { max-width: 62ch; }
+  .about p { max-width: 64ch; }
 
   /* Experience route */
   .route-group + .route-group { margin-top: 3rem; }
@@ -211,7 +235,7 @@
     .stop .what { padding-left: 0; }
     .stop .when { padding-top: 0; margin-bottom: 0.2rem; }
     .edu li { grid-template-columns: 1fr; gap: 0.3rem; }
-    .site-header nav ul { gap: 1rem; }
+    .site-header nav, .site-header nav ul { gap: 1rem; }
     .btn { flex: 1 1 100%; text-align: center; }
   }
 </style>
@@ -229,6 +253,7 @@
         <li><a href="#education">Education</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
+      <button class="theme-toggle" id="theme-toggle" type="button">Dark mode</button>
     </nav>
   </div>
 </header>
@@ -255,7 +280,7 @@
       </dl>
     </div>
   </section>
-  
+
   <section class="block" id="about" aria-labelledby="about-h">
     <div class="wrap block-head">
       <div><h2 id="about-h">About</h2></div>
@@ -439,5 +464,26 @@
 <footer>
   <div class="wrap">© 2026 Melvin B. Rocapor</div>
 </footer>
+
+<script>
+  (function () {
+    var root = document.documentElement;
+    var btn = document.getElementById('theme-toggle');
+
+    function apply(theme) {
+      root.setAttribute('data-theme', theme);
+      btn.textContent = theme === 'dark' ? 'Light mode' : 'Dark mode';
+      btn.setAttribute('aria-label', theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode');
+    }
+
+    apply(root.getAttribute('data-theme') || 'light');
+
+    btn.addEventListener('click', function () {
+      var next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      apply(next);
+      try { localStorage.setItem('theme', next); } catch (e) {}
+    });
+  })();
+</script>
 </body>
 </html>
