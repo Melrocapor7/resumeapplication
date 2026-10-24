@@ -161,6 +161,11 @@
   /* About */
   .about p + p { margin-top: 1rem; }
   .about p { max-width: 64ch; }
+  .portrait {
+    display: block; width: 100%; max-width: 260px; height: auto;
+    margin-top: 1.5rem; border-radius: 8px; border-bottom: 5px solid var(--sun);
+    background: var(--line);
+  }
 
   /* Experience route */
   .route-group + .route-group { margin-top: 3rem; }
@@ -203,7 +208,38 @@
   .edu time { color: var(--muted); font-size: 0.95rem; padding-top: 0.15rem; }
   .edu strong { font-family: var(--display); font-size: 1.2rem; font-weight: 700; display: block; line-height: 1.25; }
   .edu span { display: block; color: var(--muted); }
-  .edu .cert { color: var(--accent); font-weight: 600; }
+  .edu .cert-label { color: var(--accent); font-weight: 600; }
+
+  /* Certificates */
+  .cert-group + .cert-group { margin-top: 2.75rem; }
+  .cert-group h3 { font-size: 1.25rem; font-weight: 700; margin-bottom: 1.25rem; }
+  .certs { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 1.5rem; }
+  .cert { display: block; text-decoration: none; color: var(--ink); }
+  .cert img {
+    display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; object-position: top center;
+    border: 1px solid var(--line); border-radius: 8px; background: var(--surface);
+    transition: border-color 0.2s;
+  }
+  .cert:hover img { border-color: var(--sun); }
+  .cert-title { display: block; margin-top: 0.75rem; font-family: var(--display); font-weight: 700; font-size: 1.1rem; line-height: 1.25; }
+  .cert:hover .cert-title { text-decoration: underline; text-decoration-color: var(--sun); text-decoration-thickness: 3px; text-underline-offset: 0.2em; }
+  .cert-org { display: block; color: var(--accent); font-weight: 600; font-size: 0.95rem; margin-top: 0.2rem; }
+  .cert-date { display: block; color: var(--muted); font-size: 0.92rem; }
+
+  dialog.viewer {
+    border: 0; padding: 1rem; border-radius: 12px;
+    background: var(--surface); color: var(--ink);
+    width: min(960px, 94vw); max-height: 94vh; overflow: auto;
+  }
+  dialog.viewer::backdrop { background: rgba(8, 16, 28, 0.78); }
+  .viewer-bar { display: flex; justify-content: space-between; align-items: center; gap: 1rem; margin-bottom: 0.9rem; }
+  .viewer-cap { font-family: var(--display); font-weight: 700; font-size: 1.1rem; }
+  .viewer-close {
+    font: inherit; font-weight: 600; font-size: 0.93rem; cursor: pointer; flex: none;
+    color: var(--ink); background: transparent; border: 2px solid var(--line); border-radius: 99px; padding: 0.3rem 0.95rem;
+  }
+  .viewer-close:hover { border-color: var(--sun); }
+  .viewer img { display: block; max-width: 100%; max-height: 75vh; width: auto; height: auto; margin: 0 auto; border-radius: 6px; }
 
   /* Contact */
   .contact-main a.email {
@@ -226,6 +262,7 @@
     .block-head { grid-template-columns: 1fr; gap: 1.5rem; }
     .block-head .lead { max-width: 50ch; }
     .skills { grid-template-columns: 1fr; gap: 2rem; }
+    .portrait { max-width: 220px; }
   }
   @media (max-width: 600px) {
     body { font-size: 1rem; }
@@ -237,6 +274,7 @@
     .edu li { grid-template-columns: 1fr; gap: 0.3rem; }
     .site-header nav, .site-header nav ul { gap: 1rem; }
     .btn { flex: 1 1 100%; text-align: center; }
+    .certs { grid-template-columns: 1fr 1fr; gap: 1rem; }
   }
 </style>
 </head>
@@ -251,6 +289,7 @@
         <li><a href="#experience">Experience</a></li>
         <li><a href="#skills">Skills</a></li>
         <li><a href="#education">Education</a></li>
+        <li><a href="#certificates">Certificates</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
       <button class="theme-toggle" id="theme-toggle" type="button">Dark mode</button>
@@ -275,7 +314,7 @@
       <dl class="glance">
         <div><dt>Based in</dt><dd>Taguig City, Metro Manila</dd></div>
         <div><dt>In customer support since</dt><dd>February 2023</dd></div>
-        <div><dt>Most recent role</dt><dd>Chat support, Concentrix</dd></div>
+        <div><dt>Most recent role</dt><dd>Advisor I, Customer Service, Concentrix</dd></div>
         <div><dt>Degree</dt><dd>BS Tourism Management, 2023</dd></div>
       </dl>
     </div>
@@ -283,7 +322,10 @@
 
   <section class="block" id="about" aria-labelledby="about-h">
     <div class="wrap block-head">
-      <div><h2 id="about-h">About</h2></div>
+      <div>
+        <h2 id="about-h">About</h2>
+        <img class="portrait" src="images/melvin.jpg" width="720" height="900" alt="Melvin Rocapor in a graduation gown, holding his cap" loading="lazy">
+      </div>
       <div class="about">
         <p>I began my career in tourism and hospitality, working in front-desk operations, conducting museum tours, and hosting events. These experiences helped me develop strong communication, customer service, problem-solving, and interpersonal skills, particularly when assisting people who are tired, confused, or in a hurry.</p>
         <p>Since 2023, I have expanded my experience in the customer support industry, handling customer service for an Amazon account, providing technical support for Cox Communications, and managing chat support at Concentrix. I am experienced in handling multiple communication channels simultaneously, including chat, email, and phone support, while maintaining service quality, accuracy, and efficiency.</p>
@@ -304,11 +346,11 @@
           <h3>Customer support</h3>
           <ol class="route">
             <li class="stop current">
-              <time class="when" datetime="2025-10">Oct 2025 – Oct 2026</time>
+              <time class="when" datetime="2025-09">Sep 2025 – Oct 2026</time>
               <div class="what">
-                <h4>Chat support <span class="badge">Most recent</span></h4>
+                <h4>Advisor I, Customer Service <span class="badge">Most recent</span></h4>
                 <p class="where">Concentrix</p>
-                <p class="note">Helped customers through live chat.</p>
+                <p class="note">Chat support, Operations Group.</p>
               </div>
             </li>
             <li class="stop">
@@ -350,11 +392,11 @@
               </div>
             </li>
             <li class="stop">
-              <span class="when">On-the-job training</span>
+              <time class="when" datetime="2022-09">Sep – Nov 2022</time>
               <div class="what">
                 <h4>Front desk, marketing and sales, purchasing and reservations</h4>
                 <p class="where">Jade Hotel and Suites</p>
-                <p class="note">Makati City.</p>
+                <p class="note">300-hour internship. Makati City.</p>
               </div>
             </li>
             <li class="stop">
@@ -413,31 +455,93 @@
           <time>2019 – 2023</time>
           <div>
             <strong>Bachelor of Science in Tourism Management</strong>
-            <span>Taguig City University</span>
+            <span>Taguig City University. Graduated August 2023.</span>
           </div>
         </li>
         <li>
           <time>Vocational course</time>
           <div>
-            <strong class="cert">TESDA – Housekeeping NCII</strong>
+            <strong class="cert-label">TESDA – Housekeeping NCII</strong>
             <span>National Certificate II</span>
           </div>
         </li>
         <li>
-          <time>2018 – 2019</time>
+          <time>Completed 2019</time>
           <div>
             <strong>Senior High School</strong>
-            <span>Asia Source College of Arts and Technology, Fort Bonifacio, Taguig City</span>
+            <span>Asia Source College of Arts and Technology, Fort Bonifacio, Taguig City. Technical-Vocational Livelihood Track, Home Economics strand.</span>
           </div>
         </li>
         <li>
-          <time>2012 – 2018</time>
+          <time>Completed 2017</time>
           <div>
             <strong>Junior High School</strong>
             <span>Diosdado Macapagal National High School, Taguig City</span>
           </div>
         </li>
       </ul>
+    </div>
+  </section>
+
+  <section class="block" id="certificates" aria-labelledby="cert-h">
+    <div class="wrap block-head">
+      <div>
+        <h2 id="cert-h">Certificates</h2>
+        <p class="lead">Select a document to view it larger.</p>
+      </div>
+      <div>
+        <div class="cert-group">
+          <h3>Work and training</h3>
+          <ul class="certs">
+            <li>
+              <a class="cert" href="images/coe-concentrix.jpg" data-caption="Certificate of Employment, Concentrix" data-alt="Concentrix certificate of employment for Melvin Rocapor, Advisor I, Customer Service, September 29, 2025 to October 14, 2026">
+                <img src="images/coe-concentrix.jpg" alt="Concentrix certificate of employment" loading="lazy">
+                <span class="cert-title">Certificate of Employment</span>
+                <span class="cert-org">Concentrix</span>
+                <span class="cert-date">Sep 29, 2025 – Oct 14, 2026</span>
+              </a>
+            </li>
+            <li>
+              <a class="cert" href="images/jade-internship.jpg" data-caption="Certificate of Completion, Jade Hotel and Suites" data-alt="Jade Hotel and Suites certificate of completion for a 300-hour internship, September 26 to November 24, 2022">
+                <img src="images/jade-internship.jpg" alt="Jade Hotel and Suites certificate of completion" loading="lazy">
+                <span class="cert-title">Certificate of Completion</span>
+                <span class="cert-org">Jade Hotel and Suites</span>
+                <span class="cert-date">300-hour internship, Sep 26 – Nov 24, 2022</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="cert-group">
+          <h3>Education</h3>
+          <ul class="certs">
+            <li>
+              <a class="cert" href="images/diploma-bs-tourism.jpg" data-caption="Diploma, BS Tourism Management" data-alt="Taguig City University diploma, Bachelor of Science in Tourism Management, August 14, 2023">
+                <img src="images/diploma-bs-tourism.jpg" alt="Taguig City University diploma" loading="lazy">
+                <span class="cert-title">BS Tourism Management</span>
+                <span class="cert-org">Taguig City University</span>
+                <span class="cert-date">August 14, 2023</span>
+              </a>
+            </li>
+            <li>
+              <a class="cert" href="images/diploma-senior-high.jpg" data-caption="Senior High School diploma" data-alt="Asia Source College of Arts and Technology senior high school diploma, Home Economics strand, April 2, 2019">
+                <img src="images/diploma-senior-high.jpg" alt="Senior high school diploma" loading="lazy">
+                <span class="cert-title">Senior High School diploma</span>
+                <span class="cert-org">Asia Source College of Arts and Technology</span>
+                <span class="cert-date">April 2, 2019</span>
+              </a>
+            </li>
+            <li>
+              <a class="cert" href="images/certificate-junior-high.jpg" data-caption="Junior High School certificate" data-alt="Junior high school certificate from Pres. Diosdado Macapagal High School, April 2, 2017">
+                <img src="images/certificate-junior-high.jpg" alt="Junior high school certificate" loading="lazy">
+                <span class="cert-title">Junior High School certificate</span>
+                <span class="cert-org">Pres. Diosdado Macapagal High School</span>
+                <span class="cert-date">April 2, 2017</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -465,7 +569,16 @@
   <div class="wrap">© 2026 Melvin B. Rocapor</div>
 </footer>
 
+<dialog class="viewer" id="viewer" aria-label="Certificate viewer">
+  <div class="viewer-bar">
+    <p class="viewer-cap" id="viewer-cap"></p>
+    <button class="viewer-close" id="viewer-close" type="button">Close</button>
+  </div>
+  <img id="viewer-img" alt="">
+</dialog>
+
 <script>
+  /* Theme toggle */
   (function () {
     var root = document.documentElement;
     var btn = document.getElementById('theme-toggle');
@@ -483,6 +596,27 @@
       apply(next);
       try { localStorage.setItem('theme', next); } catch (e) {}
     });
+  })();
+
+  /* Certificate viewer. Without JavaScript, the links simply open the image. */
+  (function () {
+    var dlg = document.getElementById('viewer');
+    if (!dlg || typeof dlg.showModal !== 'function') return;
+    var img = document.getElementById('viewer-img');
+    var cap = document.getElementById('viewer-cap');
+
+    document.querySelectorAll('a.cert').forEach(function (a) {
+      a.addEventListener('click', function (e) {
+        e.preventDefault();
+        img.src = a.getAttribute('href');
+        img.alt = a.dataset.alt || '';
+        cap.textContent = a.dataset.caption || '';
+        dlg.showModal();
+      });
+    });
+
+    document.getElementById('viewer-close').addEventListener('click', function () { dlg.close(); });
+    dlg.addEventListener('click', function (e) { if (e.target === dlg) dlg.close(); });
   })();
 </script>
 </body>
